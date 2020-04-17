@@ -1,0 +1,2 @@
+include ':chapter6', ':chapter7'
+rootProject.name='MyTeach6-8'

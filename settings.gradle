@@ -1,2 +1,2 @@
-include ':chapter6', ':chapter7'
+include ':chapter6', ':chapter8'
 rootProject.name='MyTeach6-8'

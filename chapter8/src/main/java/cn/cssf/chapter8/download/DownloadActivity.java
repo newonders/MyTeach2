@@ -55,7 +55,7 @@ public class DownloadActivity extends AppCompatActivity implements View.OnClickL
         }
         switch (v.getId()) {
             case R.id.start_download:
-                String url = "https://raw.githubusercontent.com/guolindev/eclipse/master/eclipse-inst-win64.exe";
+                String url = "http://forspeed.onlinedown.net/down/newdown/3/30/FormatFactory_setup.zip";
                 downloadBinder.startDownload(url);
                 break;
             case R.id.pause_download:

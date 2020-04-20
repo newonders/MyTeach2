@@ -4,8 +4,10 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
 
     <application
         android:allowBackup="true"
@@ -42,6 +44,21 @@
             android:name=".BaseService"
             android:enabled="true"
             android:exported="true" />
+
+        <service android:name=".call.PhoneListenService"
+            android:label="Android来电监听"
+            android:process=":PhoneListenService"/>
+
+        <receiver android:name=".call.PhoneStateReceiver"
+            android:enabled="true"
+            android:process=":PhoneListenService">
+            <intent-filter>
+                <action android:name="android.intent.action.NEW_OUTGOING_CALL" />
+                <action android:name="android.intent.action.PHONE_STATE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
     </application>
 
 </manifest>

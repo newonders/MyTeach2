@@ -56,13 +56,11 @@ public class PermissionAcitivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_CALL);
-                intent.setData(Uri.parse("tel:10086"));
                 boolean isAllGranted =
-                        checkSelfPermission(permissions[0]) == PackageManager.PERMISSION_GRANTED;
+                        checkSelfPermission(permissions[1]) == PackageManager.PERMISSION_GRANTED;
                 if (isAllGranted){
                     //执行需权限的代码
-                    startActivity(intent);
+                    callPhone();
                     Toast.makeText(PermissionAcitivity.this, "可拨打电话",
                             Toast.LENGTH_SHORT).show();
                 }
@@ -79,7 +77,7 @@ public class PermissionAcitivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 boolean isAllGranted =
-                        checkSelfPermission(permissions[0]) == PackageManager.PERMISSION_GRANTED;
+                        checkSelfPermission(permissions[2]) == PackageManager.PERMISSION_GRANTED;
                 if (isAllGranted){
                     //执行需权限的代码
                     Toast.makeText(PermissionAcitivity.this, "可写外存储",
@@ -94,7 +92,14 @@ public class PermissionAcitivity extends AppCompatActivity {
                 }
             }
         });
+    }
 
+    private void callPhone(){
+        if (checkSelfPermission(permissions[1]) == PackageManager.PERMISSION_GRANTED){
+            Intent intent = new Intent(Intent.ACTION_CALL);
+            intent.setData(Uri.parse("tel:10086"));
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -121,7 +126,7 @@ public class PermissionAcitivity extends AppCompatActivity {
                 }
             }
             if (isGranted){
-                //执行拨打电话代码
+                callPhone();
             }
         }
         else if (requestCode == this.ExtRequestCode){

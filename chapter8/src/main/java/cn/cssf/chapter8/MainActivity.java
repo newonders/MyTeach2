@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 
+import cn.cssf.chapter8.call.CallActivity;
 import cn.cssf.chapter8.download.DownloadActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -72,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     intent = new Intent(context, DownloadActivity.class);
                     break;
                 case R.id.button6:
+                    intent = new Intent(context, CallActivity.class);
                     break;
                 case R.id.button7:
                     break;

@@ -19,9 +19,7 @@ public class OkHttpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_okhttp);
-
         responseText = findViewById(R.id.textViewOk);
-
         findViewById(R.id.okHttpBt).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,16 +29,7 @@ public class OkHttpActivity extends AppCompatActivity {
     }
 
     private void sendRequestWithOkHttp() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    HttpUtil.sendOkHttpRequest("http://www.baidu.com", new MyCallback());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+        HttpUtil.sendOkHttpRequest("http://www.baidu.com", new MyCallback());
     }
 
     private void showResponse(final String response) {

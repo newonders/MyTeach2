@@ -25,7 +25,7 @@ public class HttpURLConnActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 new Thread(new Runnable() {
-                    @Override
+                        @Override
                     public void run() {
                         HttpURLConnection connection = null;
                         BufferedReader reader = null;
